@@ -1,66 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A web interface for MQTT over Websockets">
-    <meta name="author" content="Fabian Affolter">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A web interface for Particle Measurement"
+    />
+    <meta name="author" content="Jesse Schollitt" />
 
-    <title>Home conditions</title>
+    <title>Particle Measurements</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>-->
 
     <script type="text/javascript" src="js/index.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Home conditions</a>
+      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#"
+        >Air Quality Data - Particle Counts</a
+      >
     </nav>
     <div class="container-fluid">
-        <div id="status" class="alert">
-            <small>Loading...</small>
-        </div>
+      <div id="status" class="alert">
+        <small>Loading...</small>
+      </div>
 
-        <div class="row">
-            <div class="col-12 col-md-7 mb-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title">
-                            10 &#181;m particle count
-                            <span id="livingTempLabel" class="text-muted float-right badge">Unknown</span>
-                        </div>
-                    </div>
-                    <canvas id="pmChart" width="300" height="120"></canvas>
-                </div>
+      <div class="row">
+        <div class="col-12 col-md-7 mb-2">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">2.5 and 10 &#181;m particle count</div>
             </div>
-            <div class="col-12 col-md-5">
-                <table class="table table-bordered table-sm table-striped mt-2">                    
-                    <tbody>
-                        <tr>
-                            <th>PM10</th>
-                            <td><small id="value1">(no value received)</small></td>
-                        </tr>
-                        <tr>
-                            <th>PM2.5</th>
-                            <td><small id="value2">(no value received)</small></td>
-                        </tr>
-                        <tr>
-                            <th>Last MQTT message</th>
-                            <td><small id="message">no message received</small></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <canvas id="pmChart" width="300" height="120"></canvas>
+          </div>
         </div>
-        <hr>
-        <footer class="text-center mt-10">
-            <small>
-                <a href="https://github.com/fabaff/mqtt-panel">forked from github.com/fabaff/mqtt-panel</a>
-            </small>
-        </footer>
+        <div class="col-12 col-md-5">
+          <table class="table table-bordered table-sm table-striped mt-2">
+            <tbody>
+              <tr>
+                <th colspan="2" style="text-align: center">
+                  Latest Reading Data
+                </th>
+              </tr>
+              <tr>
+                <th>PM2.5</th>
+                <td><small id="value1">(no value received)</small></td>
+              </tr>
+              <tr>
+                <th>PM10</th>
+                <td><small id="value2">(no value received)</small></td>
+              </tr>
+              <tr>
+                <th>Time of reading</th>
+                <td><small id="message">no message received</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr />
+      <footer class="text-center mt-10">
+        <small>
+          <a href="https://github.com/fabaff/mqtt-panel"
+            >Based on github.com/fabaff/mqtt-panel</a
+          >
+        </small>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
