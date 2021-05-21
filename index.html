@@ -40,7 +40,8 @@
             <div class="card-body">
               <div class="card-title">2.5 and 10 &#181;m particle count</div>
             </div>
-            <canvas id="pmChart" width="300" height="120"></canvas>
+            <canvas id="pmChartDay" width="300" height="120"></canvas>
+            <canvas id="pmChartWeek" width="300" height="120"></canvas>
           </div>
         </div>
         <div class="col-12 col-md-5">
@@ -52,16 +53,67 @@
                 </th>
               </tr>
               <tr>
-                <th>PM2.5</th>
+                <th>PM 2.5</th>
                 <td><small id="value1">(no value received)</small></td>
               </tr>
               <tr>
-                <th>PM10</th>
+                <th>PM 10</th>
                 <td><small id="value2">(no value received)</small></td>
               </tr>
               <tr>
                 <th>Time of reading</th>
                 <td><small id="message">no message received</small></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered table-sm mt-2">
+            <tbody>
+              <tr>
+                <th colspan="2" style="text-align: center">
+                  Measurement Lookup Chart
+                </th>
+              </tr>
+              <tr>
+                <th rowspan="4">PM2.5</th>
+                <td style="background-color: #dff0d8">
+                  <small>Less than 50</small>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #d9edf7">
+                  <small>50 to 100</small>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #fcf8e3">
+                  <small>101 to 200</small>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #f2dede">
+                  <small>More than 200</small>
+                </td>
+              </tr>
+              <tr>
+                <th rowspan="4">PM10</th>
+                <td style="background-color: #dff0d8">
+                  <small>Less than 50</small>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #d9edf7">
+                  <small>50 to 100</small>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #fcf8e3">
+                  <small>101 to 200</small>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #f2dede">
+                  <small>More than 200</small>
+                </td>
               </tr>
             </tbody>
           </table>

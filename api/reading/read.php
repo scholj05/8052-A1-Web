@@ -15,15 +15,22 @@
 	$reading = new Reading($db);
 
 	// read
-	$statement = $reading->read();
-	$data = $statement->execute();
+	$statement1 = $reading->readDay();
+	$data1 = $statement1->execute();
 
-	if($data->numColumns() > 0){// && $data->columnType(0) != SQLITE3_NULL){
+	$statement2 = $reading->readWeek();
+	$data2 = $statement2->execute();
+
+	if($data1->numColumns() > 0 && $data2->numColumns() > 0){// && $data->columnType(0) != SQLITE3_NULL){
 		$reading_array = array();
-		//$reading_array["readings"]=array();
+		$reading_array["day"]=array();
+		$reading_array["week"]=array();
 
-		while ($row = $data->fetchArray(SQLITE3_ASSOC)){
-			array_push($reading_array, $row);
+		while ($row = $data1->fetchArray(SQLITE3_ASSOC)){
+			array_push($reading_array["day"], $row);
+		}
+		while ($row = $data2->fetchArray(SQLITE3_ASSOC)){
+			array_push($reading_array["week"], $row);
 		}
 
 		http_response_code(200);
